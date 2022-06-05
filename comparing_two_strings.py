@@ -8,4 +8,6 @@ A = difflib.SequenceMatcher(None, a, b,)
 
 
 
-print(A.ratio())
+R = A.ratio()
+#the higher R is ; the more similar a and b are
+print(R)

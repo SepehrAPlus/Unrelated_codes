@@ -69,6 +69,6 @@ def load_data():
 
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-# what code actuaalt does happens below
+# what code actually does happens below
 if __name__ == "__main__":
     load_data()

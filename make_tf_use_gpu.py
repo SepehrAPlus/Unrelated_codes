@@ -1,18 +1,25 @@
 import os
 import platform
+import http.client as httplib
 
-
-
-import urllib2
-
-def internet_on():
-    #got it from unutbu in stack overflow 
+def have_internet():
+    conn = httplib.HTTPSConnection("8.8.8.8", timeout=5)
     try:
-        urllib2.urlopen('http://216.58.192.142', timeout=1)
+        conn.request("HEAD", "/")
         return True
-    except urllib2.URLError as err:
+    except Exception:
         return False
+    finally:
+        conn.close()
 
+
+def inform_user_about_internet_connectivity():
+    have_internet_output=have_internet()
+    if have_internet_output == False:
+        print("[ERROR] : YOU MUST HAVE A INTERNET CONNECTION TO MAKE THIS CODE WORK")
+        exit()
+    elif have_internet_output == True:
+        pass
 
 
 

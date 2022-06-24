@@ -1,6 +1,21 @@
 import os
 import platform
 
+
+
+import urllib2
+
+def internet_on():
+    #got it from unutbu in stack overflow 
+    try:
+        urllib2.urlopen('http://216.58.192.142', timeout=1)
+        return True
+    except urllib2.URLError as err:
+        return False
+
+
+
+
 os_name_allowed_filter = lambda n : n == "Windows"
 lib_to_remove = "tensorflow"
 libs_to_install = ["tensorflow-gpu","pycuda","pip install nvidia-cudnn"]
@@ -10,12 +25,12 @@ cmd_sender = os.popen
 
 def uninstall_lib(lib_name):
     output = cmd_sender(uninsatall_command.format(lib_name=lib_name)).read()
-    print(f"[CMD] : \n {output} \n {'='*15}")
+    print(f"[CMD OUTPUT] : \n {output} \n {'='*15}")
 
 
 def install_lib(lib_name):
     output = cmd_sender(install_command.format(lib_name=lib_name)).read()
-    print(f"[CMD] : \n {output} \n {'='*15}")
+    print(f"[CMD OUTPUT] : \n {output} \n {'='*15}")
 
 
 def get_current_os_name():
